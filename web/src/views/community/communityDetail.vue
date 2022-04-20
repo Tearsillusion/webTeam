@@ -252,9 +252,14 @@
 				 display: flex;
 				 align-items: flex-start;
 				 flex-direction: column;
+				 width: calc(100% - 80px);
 				h2{
+					width: 100%;
 					font-size: 18px;
 					margin: 0;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
 				}
 			  p{
 				font-size: 12px;
@@ -362,9 +367,14 @@
 					 flex-direction: column;
 					 padding: 20px 0;
 					 letter-spacing: 1px;
+					 width: calc(100% - 200px);
 					h2{
+						width: 100%;
 						font-size: 12px;
 						margin: 0;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
 					}
 				   p{
 						font-size: 12px;
