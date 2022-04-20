@@ -1,0 +1,64 @@
+#app {
+	font-family: "微软雅黑";
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	min-width: 1200PX;
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	min-width: 1200PX;
+}
+input{
+	padding: 0;
+	border: 0;
+}
+
+:root {
+	--main-font-color: #59beec;
+	--main-border-color: #3d6183;
+	--main-background-color: #37363c;
+	--main-main-color: #4a474e;
+	--main-other-color: #5eaead;
+}
+.no-data{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	img{
+		width: 100px;
+	}
+	p{
+		font-size: 16px;
+		opacity: 0.6;
+	}
+}
+.hoverActive{
+	cursor: pointer;
+	&:hover{
+		opacity: 0.6;
+	}
+}
+/* 谷歌滚动条设置 */
+::-webkit-scrollbar {
+	width: 3px;
+	border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+    background-color:rgba(0,0,0,0.3); 
+}
+/* 火狐 */
+@-moz-document url-prefix() {
+  * {
+    scrollbar-width: none;
+  }
+}
