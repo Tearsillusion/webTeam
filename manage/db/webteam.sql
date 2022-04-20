@@ -11,7 +11,7 @@
  Target Server Version : 50528
  File Encoding         : 65001
 
- Date: 20/04/2022 17:27:45
+ Date: 20/04/2022 18:31:45
 */
 
 SET NAMES utf8mb4;
@@ -31,7 +31,7 @@ CREATE TABLE `collection`  (
   INDEX `collection_user`(`user_id`) USING BTREE,
   CONSTRAINT `collection_community` FOREIGN KEY (`community_id`) REFERENCES `community` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `collection_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for comments
@@ -40,7 +40,7 @@ DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '评论内容',
+  `content` varchar(20000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '评论内容',
   `community_id` int(11) NOT NULL COMMENT '文章id',
   `user_id` int(11) NOT NULL COMMENT '用户id',
   PRIMARY KEY (`id`, `user_id`, `community_id`) USING BTREE,
@@ -48,7 +48,7 @@ CREATE TABLE `comments`  (
   INDEX `comments_community`(`community_id`) USING BTREE,
   CONSTRAINT `comments_community` FOREIGN KEY (`community_id`) REFERENCES `community` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `comments_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for community
@@ -57,7 +57,7 @@ DROP TABLE IF EXISTS `community`;
 CREATE TABLE `community`  (
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标题',
   `id` int(255) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '内容',
+  `content` varchar(20000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '内容',
   `image_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图片',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   `priview_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '预览地址',
@@ -70,7 +70,7 @@ CREATE TABLE `community`  (
   INDEX `id`(`id`) USING BTREE,
   INDEX `user_community`(`user_id`) USING BTREE,
   CONSTRAINT `user_community` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for user
