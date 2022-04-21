@@ -26,3 +26,11 @@ npm run lint
 
 ### Study and communication
 Please join QQ 639603060.
+
+### 编译镜像
+make build-image
+
+### 容器启动
+docker run -it web-team
+
+### 访问

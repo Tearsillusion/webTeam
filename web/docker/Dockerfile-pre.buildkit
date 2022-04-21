@@ -1,0 +1,8 @@
+# syntax = docker/dockerfile:experimental
+FROM node:14
+WORKDIR /app
+USER root
+COPY ./package.json ./
+COPY ./ ./
+RUN  npm i --registry https://registry.npm.taobao.org/
+RUN npm run build
