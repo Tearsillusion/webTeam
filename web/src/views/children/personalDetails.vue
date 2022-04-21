@@ -92,7 +92,11 @@
 			box-sizing: border-box;
 			cursor: pointer;
 			h2{
+				width: 90%;
 				font-size: 12px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
 			}
 		}
 		&-public{
