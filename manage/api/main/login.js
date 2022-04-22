@@ -19,7 +19,7 @@ const login = async (req, res,authorization,sqlMain) => {
 		
 		const selectEmail = await sqlMain.selectAnySql('user','account',email)
 		
-		if(selectEmail.length === 0){
+		if(selectEmail&&selectEmail.length === 0){
 			res.send({
 				code: 400,
 				message: "账号不存在！",

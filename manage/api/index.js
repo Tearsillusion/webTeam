@@ -55,7 +55,7 @@ module.exports = function useApp(){
 		}
 		console.log(req.url)
 		// 鉴权
-		if(req.url!=="/api/forgetPassword/"&&req.url!=="/api/verificationCode/"&&req.url!=="/api/login/"&&req.url!=="/api/register/"){
+		if(req.url!=="/"&&req.url.indexOf('favicon.ico') === -1&&req.url!=="/api/forgetPassword/"&&req.url!=="/api/verificationCode/"&&req.url!=="/api/login/"&&req.url!=="/api/register/"){
 			const {authorization:token} = req.headers
 			let result
 			try{
