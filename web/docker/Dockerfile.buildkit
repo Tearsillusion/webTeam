@@ -1,9 +1,7 @@
 # syntax = docker/dockerfile:experimental
 FROM nginx:stable
 WORKDIR /usr/share/nginx/html/
-RUN --mount=type=bind,from=web-team-pre,source=/app/dist,target=/tmp/web-team/dist
-RUN mkdir -p /usr/share/nginx/html && cp -r /tmp/web-team/dist/* /usr/share/nginx/html/
-RUN mv /usr/share/nginx/html/index.html /usr/share/nginx/html/index.html.tmpl
+RUN --mount=type=bind,from=web-team-pre:latest,source=/app/dist,target=/tmp/dist ls /tmp/dist && mkdir -p /usr/share/nginx/html && cp -r /tmp/dist/* /usr/share/nginx/html/
 ADD ./docker/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 COPY ./docker/entrypoint.sh /

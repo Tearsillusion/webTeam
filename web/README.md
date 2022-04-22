@@ -31,6 +31,7 @@ Please join QQ 639603060.
 make build-image
 
 ### 容器启动
-docker run -it web-team
+docker run -it -p 9090:80 web-team
 
 ### 访问
+http://127.0.0.1:9090
