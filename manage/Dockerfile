@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:14.18.3
 LABEL name = "manage"
 LABEL version = "v1.0"
 USER root
