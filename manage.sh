@@ -1,0 +1,12 @@
+#!/bin/bash
+
+WORK_PATH = './manage'
+cd $WORK_PATH
+git reset --hard origin/webManage
+git clear -f
+git pull origin webManage
+docker build -t manage-images ./docker
+docker stop manage-container
+docker rm manage-container
+docker run -p 3000:3000 --name manage-container -d manage-images
+
