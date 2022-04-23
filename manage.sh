@@ -6,5 +6,5 @@ git pull origin webManage
 docker build -t manage-images ./manage
 docker stop manage-container
 docker rm manage-container
-docker container run -p 9008:3000 --name manage-container -d manage-images
+docker run -itd -p 9008:3000 --name manage-container  manage-images
 
