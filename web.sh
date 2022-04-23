@@ -1,9 +1,9 @@
 #!/bin/bash
 
-WORK_PATH = './web'
+WORK_PATH = '/webTest/webTeam/web'
 cd $WORK_PATH
 git reset --hard origin/webManage
-git clear -f
+git clean -f
 git pull origin webManage
 docker build -t web-images ./docker
 docker build --progress=plain -t node-images -f $WORK_PATH/docker/Dockerfile-node.buildkit $WORK_PATH

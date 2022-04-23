@@ -1,9 +1,9 @@
 #!/bin/bash
 
-WORK_PATH = './manage'
+WORK_PATH = '/webTest/webTeam/manage'
 cd $WORK_PATH
 git reset --hard origin/webManage
-git clear -f
+git clean -f
 git pull origin webManage
 docker build -t manage-images ./docker
 docker stop manage-container
