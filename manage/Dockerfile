@@ -1,7 +1,7 @@
 FROM node:14
 LABEL name = "manage"
 LABEL version = "v1.0"
-COPY ././package.json /app
+COPY . /app
 WORKDIR /app
 RUN npm install
 EXPOSE 3000
