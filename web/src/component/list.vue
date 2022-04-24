@@ -27,7 +27,7 @@
 	} from 'vue-router'
 	const router = useRouter();
 	const emits = defineEmits(['delete'])
-	console.log(11)
+	console.log(11222)
 	const props = defineProps({
 		data: Array,
 		deleteShow: Boolean
