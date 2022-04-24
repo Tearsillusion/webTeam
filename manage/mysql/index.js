@@ -3,14 +3,16 @@ const mysql = require('mysql')
 
 const useMysql = ()=>{
 	let conn = mysql.createConnection({
-		host:'192.168.2.28',
-		prot:'49457',
+		host:'47.94.99.166',
+		prot:'3006',
 		user:'root',
-		password:'ljl1234',
-		database:'webManage',
+		password:'root',
+		database:'web',
 		charset:'utf8',
 	})
-	conn.connect()
+	conn.connect(function(err){
+		console.log(err)
+	})
 	return conn;
 }
 

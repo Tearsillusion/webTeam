@@ -18,7 +18,14 @@ const login = async (req, res,authorization,sqlMain) => {
 	} else {
 		
 		const selectEmail = await sqlMain.selectAnySql('user','account',email)
-		
+		console.log(selectEmail)
+		if(!selectEmail){
+			res.send({
+				code: 400,
+				message: "登录失败！",
+			})
+			return;
+		}
 		if(selectEmail&&selectEmail.length === 0){
 			res.send({
 				code: 400,

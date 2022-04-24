@@ -44,6 +44,7 @@ const register = (req, res, redisClient,sqlMain) => {
 				
 				const selectEmail = await sqlMain.selectExistSql('user','account',email)
 				console.log(selectEmail)
+				
 				if(selectEmail && selectEmail[0]['count(*)'] > 0){
 					res.send({
 						code: 400,
@@ -53,6 +54,7 @@ const register = (req, res, redisClient,sqlMain) => {
 					return;				
 				}
 				const selectNickName = await sqlMain.selectExistSql('user','account',nickName)
+				
 				if(selectNickName && selectNickName[0]['count(*)'] > 0){
 					res.send({
 						code: 400,
@@ -73,7 +75,10 @@ const register = (req, res, redisClient,sqlMain) => {
 						message: "注册失败",
 					})
 				}
-				redisClient.removeValue(email)
+				res.json({
+					code: 400,
+					message: "注册失败",
+				})
 			} else {
 				res.json({
 					code: 400,
