@@ -1,35 +1,37 @@
-
-var express = require("express");
-var bodyParser = require('body-parser');
-var cors = require('cors');
+let http = require('http')
 let {spawn} = require('child_process')
-var app = express()
-app.all('*',function(req,res,next){
-	res.header("Access-Control-Allow-Origin","*");
-	res.header("Access-Control-Allow-Headers","X-Requested-With");
-	res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-	res.header("X-Powered-By","3.2.1");
-	res.header("Content-Type","application/json;charset=utf-8");
+
+let server = http.createServer(function(req,res){
+	console.log(111112222,req);
 	if(req.method === 'POST' && req.url === '/hooks'){
-		let event = req.headers['x-github-event'];
-		
-		console.log(event,req,res)
-		// let child = spawn('sh',[`./${payload.repository.name}`]);
-		
-		
-	}	
+		let buffers = []
+		req.on('data',function(buffer){
+			buffers.push(buffer)
+		})
+		req.on('end',function(buffer){
+			let body = Buffer.concat(buffers)
+			let event = req.headers['x-github-event'];
+			res.setHeader('Content-Type','application/json');
+			res.end(JSON.stringify({code:200}))
+			if(event === 'push'){
+				let payload = JSON.parse(body)
+				console.log(payload.repository)
+				console.log(payload.repository.name)
+				let child = spawn('sh',[`./${payload.repository.name}`]);
+				child.stdout.on('data',function(){
+					
+				})
+			}
+			
+		})
+	}
 })
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors());
-var server = app.listen(9003,function(){
+
+server.listen(9003,function(){
 	var host = server.address().address;
 	var port = server.address().port;
 	console.log('地址:',host)
 	console.log('端口:',port)
 	console.log("服务开启成功")
 })
-
-
-
 
