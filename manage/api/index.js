@@ -30,7 +30,7 @@ const comments = require("./main/comments.js")
 const myComments = require("./main/myComments.js")
 
 module.exports = function useApp(){
-	const baseUrl = 'http://47.94.99.166:9001/'  
+	const baseUrl = 'http://39.105.145.6:9001/'  
 	app.all('*',function(req,res,next){
 		res.header("Access-Control-Allow-Origin","*");
 		res.header("Access-Control-Allow-Headers","X-Requested-With");

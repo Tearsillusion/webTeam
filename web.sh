@@ -12,3 +12,4 @@ docker build --progress=plain -t web-images:latest -f ./web/docker/Dockerfile.bu
 docker run -itd -p 9002:80 --name web-container  web-images
 
 
+
