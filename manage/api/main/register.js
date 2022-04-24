@@ -43,6 +43,7 @@ const register = (req, res, redisClient,sqlMain) => {
 			if (passCode === code) {
 				
 				const selectEmail = await sqlMain.selectExistSql('user','account',email)
+				console.log(selectEmail)
 				if(selectEmail && selectEmail[0]['count(*)'] > 0){
 					res.send({
 						code: 400,

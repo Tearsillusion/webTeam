@@ -7,7 +7,7 @@ const useMysql = ()=>{
 		prot:'3306',
 		user:'root',
 		password:'ljl1234',
-		database:'webTeam',
+		database:'webManage',
 		charset:'utf8',
 	})
 	conn.connect()
