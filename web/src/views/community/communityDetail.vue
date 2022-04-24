@@ -318,8 +318,9 @@
 					}
 					
 					p{
-						font-size: 16px;
 						letter-spacing: 1px;
+						line-height: 30px;
+						font-size: 18px;
 					}
 				}
 			}

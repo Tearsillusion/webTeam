@@ -6,10 +6,11 @@
 			<div class="el-card-info-avatar">
 				<div class="el-card-info-avatar-title" @click="communityClick(item)">
 					<img :src="item.avatar">
-					<strong>{{item.title}}</strong>
+					<strong>{{item.nickName}}</strong>
 				</div>
 				<span v-if="deleteShow" class="hoverActive" @click="deleteClick(item.id)">删除</span>
 			</div>
+			<div class="el-card-title"><strong>{{item.title}}</strong></div>
 			<div class="bottom" @click="communityClick(item)">
 				<p>{{ item.content }}</p>
 			</div>
@@ -47,7 +48,7 @@
 <style lang="scss">
 	.list {
 		width: 260px;
-		height: 260px;
+		height: 280px;
 		cursor: pointer;
 		display: inline-block;
 		margin-right: 30px;
@@ -106,7 +107,13 @@
 						font-size: 12px;
 					}
 				}
-
+				.el-card-title{
+					margin-top:5px;
+					font-size: 18px;
+					-webkit-box-orient: vertical;
+					-webkit-line-clamp: 1;
+					overflow: hidden;
+				}
 				span {
 					font-size: 12px;
 					opacity: 0.5;
@@ -119,6 +126,7 @@
 					-webkit-line-clamp: 3;
 					overflow: hidden;
 					letter-spacing: 1px;
+					margin: 5px 0;
 				}
 			}
 		}
