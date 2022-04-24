@@ -2,7 +2,7 @@ let http = require('http')
 let {spawn} = require('child_process')
 
 let server = http.createServer(function(req,res){
-	console.log(11111,req);
+	console.log(111112222,req);
 	if(req.method === 'POST' && req.url === '/hooks'){
 		let buffers = []
 		req.on('data',function(buffer){
